@@ -60,7 +60,7 @@ Open session : net session
 -  To verify, Paste the IP to virus total.
 
 
-## Important Event ID's to invistigate
+## Important Event ID's to investigate
 
 ```bash
 - 4720: New user Created
