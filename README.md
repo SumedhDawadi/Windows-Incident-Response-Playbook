@@ -34,7 +34,8 @@ Get-LocalUser | Select Name, Lastlogon
 
 #### Hunting  malicious   Payload
 ◉  Detecting suspicious powershell script (payload) running in background is one of the tricky process to figure out. 
-◉  As a responder , we need to hunt the malicious payload (know and unknown threat). Once identified you can use open source threat intelligence platform ◉  ◉  Example : Virus Total , maxmind.com and more
+◉  As a responder , we need to hunt the malicious payload (know and unknown threat). Once identified you can use open source threat intelligence platform 
+◉  Example : Virus Total , maxmind.com and more
 ```bash
 CMD : forfiles /D -10 /S /M *.ps1 /C "cmd /c echo @path"  
 Powershell : forfiles /D -10 /S /M *.ps1 /C "powershell/c echo @path" 
