@@ -2,8 +2,8 @@
 
 #### User Account Enumeration.
 ◉ Goal is to  enumerate  all user's account with the privilege assigned.
-◉ In additional , Last LogOn date and time must be mapped with date and time incident took place. 
-◉ Check which users are assigned with LocalGroup  and Group Policies 
+- In additional , Last LogOn date and time must be mapped with date and time incident took place. 
+- Check which users are assigned with LocalGroup  and Group Policies 
 ```bash
 Get-LocalUser | Select Name, Lastlogon
 ```
