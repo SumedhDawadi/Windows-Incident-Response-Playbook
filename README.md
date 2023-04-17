@@ -58,3 +58,42 @@ Open session : net session
 -  As a analyst , we need to verify if the infected host is communicating with attackers server. 
 -  For this, C:\Windows\System32\drivers\etc\hosts, once you open IP's are seen.
 -  To verify, Paste the IP to virus total.
+
+
+## Important Event ID's to invistigate
+
+```bash
+- 4720: New user Created
+
+- 4688: A new process has been created
+
+- 4722: A user account was enabled
+
+- 4724: User Password reset 
+
+- 4728: User assigned to admin group
+
+- 4624: Log on sucessful
+
+- 4634: Account log off activity on a system
+
+- 4625 : Account failed to log in (bruteforce)
+
+- 4672: Special priviledge assigned to new logon
+
+- 4733: Memeber removed from a security enable local group
+
+- 5156: The Windows Filtering Platform has allowed connection
+
+- 7045: A service was installed in the system
+
+- 4657: A registry value was modified
+
+- 4660: An object was deleted
+
+- 4663: An attempt was made to access, modify, delete an object
+
+- 7036: a service has entered the stopped state
+
+- 7040: a service has disabled
+```
