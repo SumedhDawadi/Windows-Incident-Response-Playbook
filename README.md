@@ -17,7 +17,6 @@ Get-LocalUser | Select Name, Lastlogon
 - Setup: The setup log contains events that occur during the installation of the Windows operating system. On domain controllers, this log will also record events related to Active Directory.
 - Forwarded Events: Contains event logs forwarded from other computers in the same network.
 ### Important Event ID's to investigate
-
 ```bash
 - 4720: New user Created
 
@@ -91,6 +90,7 @@ Need to add commands
 - VirusTotal      : https://www.virustotal.com/gui/home
 - AnyRun          : https://any.run/
 - Intezer Analyze : https://analyze.intezer.com/
+- Hybrid-Analysis : https://hybrid-analysis.com/
 ## ◉ Processes -  Enumeration
 - A method of executing arbitrary code in the address space of a separate live process.
 - If sysmon is enable make sure you check Sysymon logs.
@@ -99,7 +99,6 @@ Need to add commands
 - Did you find any processes running in high processes usages? 
 - Dump the suspecious process for memory Forensics.
 - Check few things to investigate running processes
-- 
  ```bash
 EventID:8
 Port Number : TCP/447 and TCP/449 network connections
