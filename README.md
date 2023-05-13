@@ -4,7 +4,7 @@
 - In additional , Last LogOn date and time must be mapped with date and time incident took place. 
 - Check which users are assigned with LocalGroup  and Group Policies 
 ```bash
-Get-LocalUser | Select Name, Lastlogon
+Command in Powershell : Get-LocalUser | Select Name, Lastlogon
 ```
 ## ◉ Log  Entries - Enumeration 
 - Log Entries are records of events that happen in your computer, either by a person or by a running process
@@ -82,7 +82,7 @@ python3 APT-Hunter.py -p /opt/wineventlogs/ -o /path/to/save
  ```bash
 Need to add commands
 ``` 
-#### Psrecon : https://github.com/gfoss/PSRecon.git
+#### Psrecon (overall recon for infected host) : https://github.com/gfoss/PSRecon.git
  ```bash
 .\psrecon.ps1
 ```
@@ -109,6 +109,46 @@ lsass.exe and svchost.exe is running ?
 • Process Hacker
 • Volatility
 • x64dbg
+## ◉ Task Scheduler 
+- An attacker may exploit the Windows Task Scheduler to schedule malicious programmers for initial or recurrent execution example everyday at 6:00 AM , once a week , 21st of every month or even once  a year.
+- For persistence purposes, an attacker may utilize Windows Task Scheduler to launch applications at system startup or on a scheduled basis.
+- Windows Task Scheduler may be utilized to execute remote code to run a process under the context of a specified account for Privilege Escalation.
+ ```bash
+Simple Type Task Scheduler or Type 𝐭𝐚𝐬𝐤𝐬𝐜𝐡𝐝.𝐦𝐬𝐜 in Run
+```
+## ◉ Startup 
+- Check startup via Task Manager and check if any script or any cloud based services running such as MEGA.
+- Hackers takes advantage of start-up.
+- Hackers do this by injecting arbitrary code on active running processes that will run once PC gets started 
 
-
-
+## ◉  Hunting  malicious   Payload
+- Detecting suspicious powershell script (payload) running in background is one of the tricky process to figure out. 
+- As a responder , we need to hunt the malicious payload (know and unknown threat). Once identified you can use open source threat intelligence platform 
+- Example : Virus Total , maxmind.com and other sandbox mentioned above.
+```bash
+CMD : forfiles /D -10 /S /M *.ps1 /C "cmd /c echo @path"  
+Powershell : forfiles /D -10 /S /M *.ps1 /C "powershell/c echo @path" 
+```
+## ◉  Firewall
+-  As a responder, we need to pay attention to firewall configuration and settings.
+-  We need to investigate inbound and outbounding traffic. 
+-  As a responder, open session must be investigator we need to investigate open session
+```bash
+Firewall settings (Powershell) : netsh firewall show config
+Open session (Powershell) : net session
+```
+## ◉ Registry Entries
+- The registry is a system-defined database in which applications and system components store and retrieve configuration data.
+-  By hijacking the Registry entries utilized by services, attackers can run their malicious payloads. 
+-  Attackers may use weaknesses in registry permissions to divert from the initially stated executable to one they control upon Service start, allowing them to execute their unauthorized malware.
+```bash
+Run this command in Run : regedit
+```
+## ◉ DNS - Enumeration
+- Since, DNS is a crucial part of any communication. Adversary's take an advantages of DNS to and communicates  to their CNC server.  
+-  As a analyst , we need to verify if the infected host is communicating with attackers server. 
+-  To verify, Paste the IP to virus total.
+-  Check any Malicious IP's or DNS connect seen in HOSTS file
+ ```bash
+C:\Windows\System32\drivers\etc\hosts
+```
