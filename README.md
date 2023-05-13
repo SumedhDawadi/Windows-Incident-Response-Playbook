@@ -1,4 +1,4 @@
-#### ◉ Log  Entries - Enumeration 
+# ◉ Log  Entries - Enumeration 
 - Log Entries are records of events that happen in your computer, either by a person or by a running process
 -  The Windows event log contains logs from the operating system and applications. It stores the event with event occured - Date , Time , User account info with it's event ID . 
 -  As a security Analyst, we need to hunt for malicious event, For this , we need to look for specific event ID with its messages such as information , warning and errors 
