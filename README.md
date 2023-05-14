@@ -109,6 +109,22 @@ lsass.exe and svchost.exe is running ?
 • Process Hacker
 • Volatility
 • x64dbg
+
+## ◉ Memory Forensics (memory dump)
+- Memory forensics is forensic analysis of a computer's memory dump. Its primary application is investigation of advanced computer attacks which are stealthy enough to avoid leaving data on the computer's hard drive. Consequently, the memory (RAM) must be analyzed for forensic information.
+- It can help investigators to uncover evidence of malicious activities, such as malware infections, rootkits, network connections, encryption keys, passwords, and hidden processes.
+- Tool Source - Volatility : https://github.com/volatilityfoundation/volatility/wiki/Installation
+- Uses : 
+1. Investigating Memory Profile via KDBG for windows kernal. It helps Operating system to identify memory was originated (Suggested Profile)
+ ```bash
+volatility -f /path/saved/for/file/example.mem imageinfo 
+```
+2. Profile Investigating. This is give such valuable information such as processes running while the memory was running in kernal level
+ ```bash
+volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 pslist
+```
+3. 
+
 ## ◉ Task Scheduler 
 - An attacker may exploit the Windows Task Scheduler to schedule malicious programmers for initial or recurrent execution example everyday at 6:00 AM , once a week , 21st of every month or even once  a year.
 - For persistence purposes, an attacker may utilize Windows Task Scheduler to launch applications at system startup or on a scheduled basis.
