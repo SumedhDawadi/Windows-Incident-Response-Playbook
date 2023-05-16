@@ -103,6 +103,13 @@ Need to add commands
  ```bash
 .\psrecon.ps1
 ```
+## ◉  AmCache Investigation
+- AmCache.hve is a Windows system file that is created to store information related to program executions. The artifacts in this file can serve as a huge aid in an investigation, it records the processes recently run on the system and lists the paths of the files executed
+- AmCache.hve is stored in : 
+ ```bash
+C:\Windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Amcache.hve
+```
+
 ## ◉  Binary (.exe) Analysing via Sandbox enviroment
 - VirusTotal      : https://www.virustotal.com/gui/home
 - AnyRun          : https://any.run/
