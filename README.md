@@ -116,7 +116,49 @@ C:\Windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Amcache
 - AnyRun          : https://any.run/
 - Intezer Analyze : https://analyze.intezer.com/
 - Hybrid-Analysis : https://hybrid-analysis.com/
-## ◉ Processes -  Enumeration
+
+## ◉ Investigating Powershell payloads and more.
+- Hacker use powershell to compromise windows environment.
+- Powershell sometimes could be difficult to spot on and investigate as attacker powershell obfuscation is pretty common to hide within the host or evade AV in most of the case
+- Understanding Powershell Obfuscation : 
+### Base64 Patterns - Learning Aid
+
+| Base64 Code | Mnemonic Aid | Decoded* | Description |
+|-------------|--------------|----------|------------------------------------------|
+| `JAB` | 🗣 Jabber | `$.` | Variable declaration (UTF-16) |
+| `TVq` | 📺 Television | `MZ` | MZ header |
+| `SUVY` | 🚙 SUV | `IEX` | PowerShell Invoke Expression |
+| `SQBFAF` | 🐣 Squab favorite | `I.E.` | PowerShell Invoke Expression (UTF-16) |
+| `SQBuAH` | 🐣 Squab uahhh | `I.n.` | PowerShell Invoke string (UTF-16) e.g. `Invoke-Mimikatz` |
+| `PAA` | 💪 "Pah!" | `<.` | Often used by Emotet (UTF-16) |
+| `cwBhA` | 🦁 Chewbaka | `s.a.` | Often used in malicious droppers (UTF-16) 'sal' instead of 'var' |
+| `aWV4` | 😲 Awe version 4 | `iex` | PowerShell Invoke Expression |
+| `aQBlA` | 💦 Aqua Blah (aquaplaning) | `i.e.` | PowerShell Invoke Expression (UTF-16) |
+| `R2V0` | 🤖 R2D2 but version 0 | `Get` | Often used to obfuscate imports like GetCurrentThreadId |
+| `dmFy` | 👹 defy / demonify | `var` | Variable declaration |
+| `dgBhA` | debugger + high availability | `v.a.` | Variable declaration (UTF-16) |
+| `dXNpbm` | Dixon problem | `usin` | Often found in compile after delivery attacks |
+| `H4sIA` | 🚁 HForce (Helicopter Force) I agree | | gzip magic bytes (0x1f8b), e.g. `echo 'test' \| gzip -cf \| base64` |
+| `Y21k` | 🎆 Year 21k bug | `cmd` | As used in `cmd.exe /c wscript.exe` or the like |
+| `IAB` | 🥱 I am bored | ` s` | wide lower case `s`, often something like `sEt-iTem` |
+| `cABhAH` | 🕋 Kaaba | `p.a.` | wide formatted `param` |
+| `Qzpc` | 🖥 Quiz PC | `C:\` | Root of Windows partition (upper case) |
+| `Yzpc` | 🖥 Yes PC | `c:\` | Root of Windows partition (lower case) |
+| `UEs` | 🏬 Upper East Side | `PK` | ZIP, Office documents |
+| `ey` | 🗣 Hey | `{ ` | Indicates JSON data |
+
+\* the `.` stands for `0x00` found in UTF-16 encoded text
+- Source : https://gist.github.com/Neo23x0/6af876ee72b51676c82a2db8d2cd3639
+
+## Often found patterns
+
+| Base64 Code | Decoded | Description |
+|------------------------|--------------|------------------------------------------|
+| `AAAAAAAAAAAA` | `\x00\x00\x00\x00\x00\x00\x00\x00\x00` | Sequence of binary zeros |
+| `////////////` | `\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF` | Sequence of 0xFF bytes |
+| `ICAgICAgICAg` | `         ` | Sequence of space characters |
+
+### ◉ Processes -  Enumeration
 - A method of executing arbitrary code in the address space of a separate live process.
 - If sysmon is enable make sure you check Sysymon logs.
 - Is any powershell.exe running? 
