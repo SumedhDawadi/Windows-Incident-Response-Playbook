@@ -95,7 +95,7 @@ python3 APT-Hunter.py -p /opt/wineventlogs/ -o /path/to/save
 #### Loki (Malware scanner via YARA rules)
 - Source :https://github.com/Neo23x0/Loki
 - YARA Templates : https://github.com/VirusTotal/yara-python/releases
-- Nuclei Malware Templates : https://github.com/SumedhDawadi/nuclei-malware.git
+- Nuclei Malware Templates : https://github.com/daffainfo/nuclei-malware.git
 - Uses
  ```bash
 Need to add commands
