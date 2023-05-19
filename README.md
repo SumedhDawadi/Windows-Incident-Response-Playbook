@@ -190,8 +190,23 @@ volatility -f /path/saved/for/file/example.mem imageinfo
  ```bash
 volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 pslist
 ```
-3. 
+3. Running PSscanwill list the processes running is displayed accoording to process ID assigned to them. Also thread, session are handle as mentioned on the bassis of timestap. It also helps to identify unknown processes running
+ ```bash
+volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 psscan
+```
+4. HashDump helps to extract and decrypt cached domain crediantial stored in the registry. Once dumped you can use hashcat to JohnTheRipper to crach hashes
 
+ ```bash
+volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 hashdump
+```
+5. Lsdump helps to find out secret LSA. 
+ ```bash
+volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 lsdump
+```
+6. NotePad files are used highly by APT group for injection or most of the time for ransome note. 
+ ```bash
+volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 notepad
+```
 ## ◉ Task Scheduler 
 - An attacker may exploit the Windows Task Scheduler to schedule malicious programmers for initial or recurrent execution example everyday at 6:00 AM , once a week , 21st of every month or even once  a year.
 - For persistence purposes, an attacker may utilize Windows Task Scheduler to launch applications at system startup or on a scheduled basis.
@@ -204,6 +219,12 @@ Simple Type Task Scheduler or Type 𝐭𝐚𝐬𝐤𝐬𝐜𝐡𝐝.𝐦𝐬𝐜
 - Hackers takes advantage of start-up.
 - Hackers do this by injecting arbitrary code on active running processes that will run once PC gets started 
 
+ ```bash
+wmic startup list full
+wmic startup list brief
+Get-CimInstance Win32_StartupCommand | Select-Object Name, command, Location, User | FL
+```
+
 ## ◉  Hunting  malicious   Payload
 - Detecting suspicious powershell script (payload) running in background is one of the tricky process to figure out. 
 - As a responder , we need to hunt the malicious payload (know and unknown threat). Once identified you can use open source threat intelligence platform 
@@ -212,6 +233,16 @@ Simple Type Task Scheduler or Type 𝐭𝐚𝐬𝐤𝐬𝐜𝐡𝐝.𝐦𝐬𝐜
 CMD : forfiles /D -10 /S /M *.ps1 /C "cmd /c echo @path"  
 Powershell : forfiles /D -10 /S /M *.ps1 /C "powershell/c echo @path" 
 ```
+## ◉ Retriving Deleted Files or Folder and even footprint.
+- In most of the cases attacker or even victim tend to formate or delete evidence via PC , pendrive or even HDD/SSD.
+- Retrive such important evidence is crucial for future investivation
+- I highly recommend using Recuva for retriving datas from Hard-disk, SSD and pendrive
+- Source : https://www.ccleaner.com/recuva 
+- Uses:
+ ```bash
+Double click executable and good to go.
+```
+
 ## ◉  Firewall
 -  As a responder, we need to pay attention to firewall configuration and settings.
 -  We need to investigate inbound and outbounding traffic. 
