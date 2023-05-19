@@ -158,6 +158,19 @@ C:\Windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Amcache
 | `////////////` | `\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF` | Sequence of 0xFF bytes |
 | `ICAgICAgICAg` | `         ` | Sequence of space characters |
 
+### ◉ Dynamic Malware Analysis : 
+#### There are few key point that you need to keep in mind while analyzing malware dynamically. Reember : Gathering only IOC's is not malware analysis.
+- Behavior Analysis: Observe the malware's behavior, such as file system modifications, network communication, process creation, registry changes, and potential evasion techniques. Identify any malicious or suspicious activities.
+- Payload Identification: Determine the malware's payload, such as the type of malware (e.g., ransomware, trojan, worm) and its intended impact on the system or network. Identify any malicious functions or modules within the binary.
+- Infection Vector: Identify how the malware entered the system or network. Determine the initial infection vector, such as email attachments, malicious websites, or compromised software.
+- Persistence Mechanisms: Determine how the malware achieves persistence on the infected system, such as creating registry entries, modifying startup configurations, or installing rootkits. Identify the techniques used to maintain a presence and resist removal.
+- Anti-analysis Techniques: Identify any techniques employed by the malware to evade detection or hinder analysis, such as code obfuscation, anti-debugging, or anti-VM techniques. Determine the methods used to protect the malware's presence and make analysis more challenging.
+- Indicators of Compromise (IOCs): Extract any relevant IOCs, such as IP addresses, domains, file names, or hashes associated with the malware. These IOCs can be used to enhance detection and response capabilities across the network. Limiting to IOC's is what analyst be do.
+- Command and Control (C2) Communication: Identify any network communication between the malware and its command and control server(s). Determine the protocols, ports, and encryption methods used for communication.
+- Data Exfiltration: Identify if the malware exfiltrates sensitive information from the compromised system or network. Determine the data types targeted and the mechanisms used for data theft.
+- Mitigation and Remediation: Based on the analysis, develop effective mitigation and remediation strategies to contain the infection, remove the malware, and prevent future incidents. This may include updating antivirus signatures, patching vulnerabilities, or implementing network security measures.
+
+
 ### ◉ Processes -  Enumeration
 - A method of executing arbitrary code in the address space of a separate live process.
 - If sysmon is enable make sure you check Sysymon logs.
