@@ -12,19 +12,19 @@ Command in Powershell : Get-LocalUser | Select Name, Lastlogon
 -  As a security Analyst, we need to hunt for malicious event, For this , we need to look for specific event ID with its messages such as information , warning and errors 
 
 - Event Logs are stored in :   
-1. Security Logs
+1. Security Logs.
 ```bash
 C:\Windows\System32\config\SECURITY
 ```
-2. Software Log
+2. Software Log.
 ```bash
 C:\Windows\System32\config\SOFTWARE
 ```
-3. System Log
+3. System Log.
 ```bash
 C:\Windows\System32\config\SYSTEM
 ```
-4. Windows Event Logs
+4. Windows Event Logs.
 ```bash
 C:\Windows\System32\winevt
 ```
