@@ -69,6 +69,13 @@ C:\Windows\System32\winevt
 
 - 7040: a service has disabled
 ```
+## Did you investigate LogOn Type: 
+```bash
+Logon type 2
+Logon type 3
+Logon type 8
+Logon type 10
+```
 ## Automating Event Logs : 
 #### Quick Incident Response tool (MUST) : https://github.com/AlmCo/Panorama.git
 Users - Password, Admin, Last logon, Last password update
