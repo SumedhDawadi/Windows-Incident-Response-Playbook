@@ -69,7 +69,7 @@ C:\Windows\System32\winevt
 
 - 7040: a service has disabled
 ```
-## Did you investigate LogOn Type: 
+## Did you investigate LogOn Type?
 ```bash
 Logon type 2
 Logon type 3
