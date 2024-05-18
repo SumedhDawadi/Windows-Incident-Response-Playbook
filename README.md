@@ -235,7 +235,7 @@ volatility -f /path/saved/for/file/example.mem --profile=win10x64_1762 notepad
 Simple Type Task Scheduler or Type 𝐭𝐚𝐬𝐤𝐬𝐜𝐡𝐝.𝐦𝐬𝐜 in Run
 ```
 ## ◉ Startup 
-- Check startup via Task Manager and check if any script or any cloud based services running such as MEGA.
+- Check startup via Task Manager and check if any script or any cloud based service.
 - Hackers takes advantage of start-up.
 - Hackers do this by injecting arbitrary code on active running processes that will run once PC gets started 
 
