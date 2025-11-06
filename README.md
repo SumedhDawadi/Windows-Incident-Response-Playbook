@@ -154,7 +154,7 @@ C:\Windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Amcache
 | `UEs` | 🏬 Upper East Side | `PK` | ZIP, Office documents |
 | `ey` | 🗣 Hey | `{ ` | Indicates JSON data |
 
-\* the `.` stands for `0x00` found in UTF-16 encoded text
+\* the `.` stands for `0x00` found in UTF-16 encoded text.
 - Source : https://gist.github.com/Neo23x0/6af876ee72b51676c82a2db8d2cd3639
 
 ## Often found patterns
